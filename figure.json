@@ -1,0 +1,1653 @@
+{
+  "manifest": 2,
+  "api": 2,
+  "id": "deepseek-whale-plus",
+  "version": "1.1.5",
+  "name": {
+    "zh": "大肥鱼 Plus",
+    "zh-Hant": "大肥魚 Plus",
+    "en": "Whale Plus",
+    "ja": "DeepSeekちゃん",
+    "ko": "DeepSeek 쨩",
+    "fr": "DeepSeek Chan",
+    "de": "DeepSeek Chan",
+    "es-419": "DeepSeek Chan",
+    "pt-BR": "DeepSeek Chan",
+    "it": "DeepSeek Chan",
+    "ru": "DeepSeek-тян"
+  },
+  "about": {
+    "zh": "一个 Q 版蓝色大肥鱼（鲸鱼娘），女仆装；会走会飞会游泳，能站到窗口上沿，也能抱住窗口侧边往上爬、翻上窗口顶、趴窗口看",
+    "en": "a chibi blue whale girl in a maid dress; she walks, flies and swims, stands on the tops of windows, and climbs their sides, vaults onto them and leans in to look"
+  },
+  "author": "Pal-AI-Lab",
+  "credits": [
+    {
+      "role": "角色原设",
+      "name": "溟月(上善无形)"
+    },
+    {
+      "role": "DeepSeek 女仆二创",
+      "name": "ZipZipPipe"
+    }
+  ],
+  "entry": "figure.js",
+  "export": "createWhaleBody",
+  "model": "model.json",
+  "thumb": "thumbs/deepseek.png",
+  "axes": [
+    {
+      "id": "scheme",
+      "name": {
+        "zh": "配色",
+        "zh-Hant": "配色",
+        "en": "Colours",
+        "ja": "カラー",
+        "ko": "색상",
+        "fr": "Couleurs",
+        "de": "Farben",
+        "es-419": "Colores",
+        "pt-BR": "Cores",
+        "it": "Colori",
+        "ru": "Цвета"
+      },
+      "options": [
+        {
+          "id": "deepseek",
+          "name": {
+            "zh": "DeepSeek",
+            "en": "DeepSeek"
+          },
+          "thumb": "thumbs/deepseek.png",
+          "accent": "#4D6BFE"
+        },
+        {
+          "id": "harness",
+          "name": {
+            "zh": "DeepSeek Harness",
+            "en": "DeepSeek Harness"
+          },
+          "thumb": "thumbs/harness.png",
+          "accent": "#555555"
+        },
+        {
+          "id": "chatgpt",
+          "name": {
+            "zh": "ChatGPT",
+            "en": "ChatGPT"
+          },
+          "thumb": "thumbs/chatgpt.png",
+          "accent": "#303030"
+        },
+        {
+          "id": "claude",
+          "name": {
+            "zh": "Claude",
+            "en": "Claude"
+          },
+          "thumb": "thumbs/claude.png",
+          "accent": "#D97757"
+        },
+        {
+          "id": "gemini",
+          "name": {
+            "zh": "Gemini",
+            "en": "Gemini"
+          },
+          "thumb": "thumbs/gemini.png",
+          "accent": "#4285F4"
+        },
+        {
+          "id": "qwen",
+          "name": {
+            "zh": "千问",
+            "zh-Hant": "千問",
+            "en": "Qwen"
+          },
+          "thumb": "thumbs/qwen.png",
+          "accent": "#7F69F0"
+        },
+        {
+          "id": "kimi",
+          "name": {
+            "zh": "Kimi",
+            "en": "Kimi"
+          },
+          "thumb": "thumbs/kimi.png",
+          "accent": "#007CFF"
+        },
+        {
+          "id": "minimax",
+          "name": {
+            "zh": "MiniMax",
+            "en": "MiniMax"
+          },
+          "thumb": "thumbs/minimax.png",
+          "accent": "#D92D7A"
+        }
+      ]
+    },
+    {
+      "id": "outfit",
+      "name": {
+        "zh": "服装",
+        "zh-Hant": "服裝",
+        "en": "Outfit",
+        "ja": "衣装",
+        "ko": "의상",
+        "fr": "Tenue",
+        "de": "Outfit",
+        "es-419": "Atuendo",
+        "pt-BR": "Roupa",
+        "it": "Outfit",
+        "ru": "Наряд"
+      },
+      "options": [
+        {
+          "id": "maid",
+          "thumb": "thumbs/maid.png",
+          "name": {
+            "zh": "女仆装",
+            "zh-Hant": "女僕裝",
+            "en": "Maid dress",
+            "ja": "メイド服",
+            "ko": "메이드복",
+            "fr": "Robe de soubrette",
+            "de": "Dienstmädchenkleid",
+            "es-419": "Vestido de sirvienta",
+            "pt-BR": "Vestido de empregada",
+            "it": "Abito da cameriera",
+            "ru": "Платье горничной"
+          }
+        },
+        {
+          "id": "cape",
+          "thumb": "thumbs/cape.png",
+          "name": {
+            "zh": "冬装",
+            "zh-Hant": "冬裝",
+            "en": "Winter outfit",
+            "ja": "冬服",
+            "ko": "겨울옷",
+            "fr": "Tenue d'hiver",
+            "de": "Winteroutfit",
+            "es-419": "Ropa de invierno",
+            "pt-BR": "Roupa de inverno",
+            "it": "Abito invernale",
+            "ru": "Зимний наряд"
+          }
+        },
+        {
+          "id": "crew",
+          "thumb": "thumbs/crew.png",
+          "name": {
+            "zh": "店员装",
+            "zh-Hant": "店員裝",
+            "en": "Crew uniform",
+            "ja": "店員の制服",
+            "ko": "점원 유니폼",
+            "fr": "Uniforme d'équipière",
+            "de": "Crew-Uniform",
+            "es-419": "Uniforme de empleada",
+            "pt-BR": "Uniforme de atendente",
+            "it": "Divisa da commessa",
+            "ru": "Форма сотрудницы"
+          }
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "id": "deepseek",
+      "pick": {
+        "scheme": "deepseek",
+        "outfit": "maid"
+      },
+      "name": {
+        "zh": "DeepSeek",
+        "en": "DeepSeek"
+      },
+      "accent": "#4D6BFE",
+      "console": {
+        "light": {
+          "a": "#4562f5",
+          "a2": "#7b90fe",
+          "on": "#ffffff",
+          "t": "#3550d6",
+          "c3": "#8ea0c8",
+          "c4": "#8a8a90"
+        },
+        "dark": {
+          "a": "#7b93ff",
+          "a2": "#a3b3ff",
+          "on": "#0d1640",
+          "t": "#9aabff",
+          "c3": "#8ea0c8",
+          "c4": "#9a9aa0"
+        }
+      }
+    },
+    {
+      "id": "harness",
+      "pick": {
+        "scheme": "harness",
+        "outfit": "maid"
+      },
+      "name": {
+        "zh": "DeepSeek Harness",
+        "en": "DeepSeek Harness"
+      },
+      "accent": "#555555",
+      "console": {
+        "light": {
+          "a": "#3f3f44",
+          "a2": "#4d6bfe",
+          "on": "#ffffff",
+          "t": "#2e2e33",
+          "c3": "#7b7b82",
+          "c4": "#a6a6ac"
+        },
+        "dark": {
+          "a": "#d2d2d7",
+          "a2": "#7b93ff",
+          "on": "#151518",
+          "t": "#c8c8cd",
+          "c3": "#8c8c93",
+          "c4": "#64646a"
+        }
+      }
+    },
+    {
+      "id": "chatgpt",
+      "pick": {
+        "scheme": "chatgpt",
+        "outfit": "maid"
+      },
+      "name": {
+        "zh": "ChatGPT",
+        "en": "ChatGPT"
+      },
+      "accent": "#303030",
+      "console": {
+        "light": {
+          "a": "#2f2f2f",
+          "a2": "#8e8ea0",
+          "on": "#ffffff",
+          "t": "#202123",
+          "c3": "#10a37f",
+          "c4": "#b4b4c0"
+        },
+        "dark": {
+          "a": "#ececf1",
+          "a2": "#a9a9b8",
+          "on": "#202123",
+          "t": "#d9d9e3",
+          "c3": "#19c37d",
+          "c4": "#6e6e80"
+        }
+      }
+    },
+    {
+      "id": "claude",
+      "pick": {
+        "scheme": "claude",
+        "outfit": "maid"
+      },
+      "name": {
+        "zh": "Claude",
+        "en": "Claude"
+      },
+      "accent": "#D97757",
+      "console": {
+        "light": {
+          "a": "#d97757",
+          "a2": "#c2928a",
+          "on": "#1f0f08",
+          "t": "#a84e2f",
+          "c3": "#7b7974",
+          "c4": "#c6a58c"
+        },
+        "dark": {
+          "a": "#e08a6c",
+          "a2": "#d9a497",
+          "on": "#1f0f08",
+          "t": "#eba287",
+          "c3": "#97958d",
+          "c4": "#c6a58c"
+        }
+      }
+    },
+    {
+      "id": "gemini",
+      "pick": {
+        "scheme": "gemini",
+        "outfit": "maid"
+      },
+      "name": {
+        "zh": "Gemini",
+        "en": "Gemini"
+      },
+      "accent": "#4285F4",
+      "console": {
+        "light": {
+          "a": "#1a73e8",
+          "a2": "#34a853",
+          "on": "#ffffff",
+          "t": "#1a5fd0",
+          "c3": "#ea4335",
+          "c4": "#f9ab00"
+        },
+        "dark": {
+          "a": "#8ab4f8",
+          "a2": "#81c995",
+          "on": "#0b1a33",
+          "t": "#8ab4f8",
+          "c3": "#f28b82",
+          "c4": "#fdd663"
+        }
+      }
+    },
+    {
+      "id": "qwen",
+      "pick": {
+        "scheme": "qwen",
+        "outfit": "maid"
+      },
+      "name": {
+        "zh": "千问",
+        "zh-Hant": "千問",
+        "en": "Qwen"
+      },
+      "accent": "#7F69F0",
+      "console": {
+        "light": {
+          "a": "#7560ea",
+          "a2": "#a294f5",
+          "on": "#ffffff",
+          "t": "#5b45d0",
+          "c3": "#b8a9e8",
+          "c4": "#8a8a90"
+        },
+        "dark": {
+          "a": "#a596ff",
+          "a2": "#c2b8ff",
+          "on": "#1a1240",
+          "t": "#b3a6ff",
+          "c3": "#8f82c9",
+          "c4": "#9a9aa0"
+        }
+      }
+    },
+    {
+      "id": "kimi",
+      "pick": {
+        "scheme": "kimi",
+        "outfit": "maid"
+      },
+      "name": {
+        "zh": "Kimi",
+        "en": "Kimi"
+      },
+      "accent": "#007CFF",
+      "console": {
+        "light": {
+          "a": "#0072ea",
+          "a2": "#1b1b1f",
+          "on": "#ffffff",
+          "t": "#0062cc",
+          "c3": "#6fa8e8",
+          "c4": "#8a8a90"
+        },
+        "dark": {
+          "a": "#4da3ff",
+          "a2": "#9ccaff",
+          "on": "#001a38",
+          "t": "#6fb3ff",
+          "c3": "#d0d0d4",
+          "c4": "#6a8fb8"
+        }
+      }
+    },
+    {
+      "id": "minimax",
+      "pick": {
+        "scheme": "minimax",
+        "outfit": "maid"
+      },
+      "name": {
+        "zh": "MiniMax",
+        "en": "MiniMax"
+      },
+      "accent": "#D92D7A",
+      "console": {
+        "light": {
+          "a": "#d92d7a",
+          "a2": "#f2762e",
+          "on": "#ffffff",
+          "t": "#b51f62",
+          "c3": "#e8a0c0",
+          "c4": "#8a8a90"
+        },
+        "dark": {
+          "a": "#f0619e",
+          "a2": "#ff9a5c",
+          "on": "#2a0617",
+          "t": "#f58ab6",
+          "c3": "#c97aa0",
+          "c4": "#9a9aa0"
+        }
+      }
+    }
+  ],
+  "vocab": [
+    {
+      "id": "neutral",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "平静"
+        ]
+      },
+      "about": {
+        "zh": "默认的脸",
+        "en": "the default face"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "happy",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "开心",
+          "高兴"
+        ]
+      },
+      "about": {
+        "zh": "眯眼笑,鲸鳍竖起来,尾巴摇",
+        "en": "smiles with narrowed eyes, fins perk up, tail wags"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "wink",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "眨眼"
+        ]
+      },
+      "about": {
+        "zh": "一只眼 ^",
+        "en": "one eye turns into ^"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "love",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "喜欢",
+          "爱心"
+        ]
+      },
+      "about": {
+        "zh": "眼睛变心形,冒小心心,尾巴摇",
+        "en": "heart-shaped eyes, little hearts float up, tail wags"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "shy",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "害羞"
+        ]
+      },
+      "about": {
+        "zh": "脸红,眼神躲开",
+        "en": "blushes and looks away"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "surprised",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "惊讶",
+          "吃惊"
+        ]
+      },
+      "about": {
+        "zh": "眼睛放大,头顶感叹号",
+        "en": "eyes go wide, an exclamation mark overhead"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "angry",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "生气"
+        ]
+      },
+      "about": {
+        "zh": "皱眉,头顶怒气符号,身体发抖",
+        "en": "frowns, an anger mark overhead, body shaking"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "sad",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "难过",
+          "伤心"
+        ]
+      },
+      "about": {
+        "zh": "八字眉,低头,掉眼泪,尾巴垂下",
+        "en": "brows slant down, head lowered, tears fall, tail droops"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "sleepy",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "犯困",
+          "困"
+        ]
+      },
+      "about": {
+        "zh": "眯眼打哈欠",
+        "en": "squints and yawns"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "thinking",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "思考",
+          "想想"
+        ]
+      },
+      "about": {
+        "zh": "眼睛往上看,头顶冒圈",
+        "en": "looks up, rings rise overhead"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "smug",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "得意",
+          "嘚瑟"
+        ]
+      },
+      "about": {
+        "zh": "眯眼斜看,嘴角带笑",
+        "en": "a narrowed sidelong look and a smirk"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "pout",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "嘟嘴",
+          "哼"
+        ]
+      },
+      "about": {
+        "zh": "嘴嘟起来,脸红,扭头不看你",
+        "en": "pouts, blushes and turns away from you"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "worried",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "担心",
+          "着急"
+        ]
+      },
+      "about": {
+        "zh": "八字眉,冒冷汗",
+        "en": "brows slant down, a cold sweat"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "determined",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "认真",
+          "坚定"
+        ]
+      },
+      "about": {
+        "zh": "眼神压低,一脸认真",
+        "en": "a lowered gaze, a serious face"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "flustered",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "慌张",
+          "窘"
+        ]
+      },
+      "about": {
+        "zh": "眼睛变成 > <,满脸通红冒汗",
+        "en": "eyes turn into > <, red all over and sweating"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "scared",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "害怕",
+          "吓到"
+        ]
+      },
+      "about": {
+        "zh": "眼睛瞪大,冒汗,身体发抖",
+        "en": "eyes wide, sweating, body shaking"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "excited",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "期待",
+          "星星眼"
+        ]
+      },
+      "about": {
+        "zh": "眼睛里闪着星星",
+        "en": "stars sparkle in the eyes"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "cry",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "大哭",
+          "哭"
+        ]
+      },
+      "about": {
+        "zh": "闭眼大哭,眼泪直流",
+        "en": "eyes shut, wailing, tears streaming"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "confused",
+      "kind": "expression",
+      "names": {
+        "zh": [
+          "疑惑",
+          "问号"
+        ]
+      },
+      "about": {
+        "zh": "一脸不解,头顶问号",
+        "en": "a puzzled face, a question mark overhead"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "stand",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "站起",
+          "站"
+        ]
+      },
+      "about": {
+        "zh": "站起来(坐着、睡着时)",
+        "en": "stands up (when sitting or asleep)"
+      },
+      "seconds": 1.2
+    },
+    {
+      "id": "jump",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "跳",
+          "跳起来"
+        ]
+      },
+      "about": {
+        "zh": "原地起跳",
+        "en": "jumps on the spot"
+      },
+      "seconds": 1.2
+    },
+    {
+      "id": "hop",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "小跳",
+          "蹦"
+        ]
+      },
+      "about": {
+        "zh": "小小蹦一下",
+        "en": "a small hop"
+      },
+      "seconds": 0.9
+    },
+    {
+      "id": "look",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "张望",
+          "看看"
+        ]
+      },
+      "about": {
+        "zh": "左右张望",
+        "en": "looks left and right"
+      },
+      "seconds": 2.7
+    },
+    {
+      "id": "turn",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "转身"
+        ]
+      },
+      "about": {
+        "zh": "转向另一边",
+        "en": "turns to face the other way"
+      },
+      "seconds": 0.4
+    },
+    {
+      "id": "nod",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "点头"
+        ]
+      },
+      "about": {
+        "zh": "低头两下",
+        "en": "dips the head twice"
+      },
+      "seconds": 0.8
+    },
+    {
+      "id": "shake",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "摇头"
+        ]
+      },
+      "about": {
+        "zh": "脸左右转",
+        "en": "turns the face left and right"
+      },
+      "seconds": 0.8
+    },
+    {
+      "id": "spin",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "转圈"
+        ]
+      },
+      "about": {
+        "zh": "原地转一圈",
+        "en": "spins around once on the spot"
+      },
+      "seconds": 0.8
+    },
+    {
+      "id": "sit",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "坐下",
+          "坐"
+        ]
+      },
+      "about": {
+        "zh": "坐下歇一会儿，一两分钟就自己起来",
+        "en": "sits down to rest for a minute or two, then gets up by itself"
+      },
+      "seconds": 0.8,
+      "lasting": true
+    },
+    {
+      "id": "sleep",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "睡觉",
+          "睡"
+        ]
+      },
+      "about": {
+        "zh": "坐着打盹：白天几分钟、夜里最多八分钟就自己醒",
+        "en": "dozes sitting down — a few minutes by day, up to eight at night, then wakes by itself"
+      },
+      "seconds": 0.8,
+      "lasting": true
+    },
+    {
+      "id": "dizzy",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "晕",
+          "转晕"
+        ]
+      },
+      "about": {
+        "zh": "头晕眼花几秒",
+        "en": "dizzy for a few seconds"
+      },
+      "seconds": 3.2
+    },
+    {
+      "id": "walk",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "走走",
+          "散步"
+        ]
+      },
+      "about": {
+        "zh": "随便走一段",
+        "en": "wanders a little way"
+      },
+      "seconds": 12
+    },
+    {
+      "id": "run",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "跑",
+          "跑起来"
+        ]
+      },
+      "about": {
+        "zh": "跑到屏幕另一头",
+        "en": "runs to the other end of the screen"
+      },
+      "seconds": 12
+    },
+    {
+      "id": "wave",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "招手",
+          "打招呼"
+        ]
+      },
+      "about": {
+        "zh": "举起靠近你的那只手挥一挥",
+        "en": "raises the hand nearer to you and waves"
+      },
+      "seconds": 1.7
+    },
+    {
+      "id": "bow",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "鞠躬"
+        ]
+      },
+      "about": {
+        "zh": "闭眼,上身往前倾鞠一躬",
+        "en": "closes the eyes and bows from the waist"
+      },
+      "seconds": 1.7
+    },
+    {
+      "id": "shiver",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "发抖",
+          "哆嗦"
+        ]
+      },
+      "about": {
+        "zh": "缩着身子抖一会儿",
+        "en": "huddles up and shivers for a while"
+      },
+      "seconds": 1.9
+    },
+    {
+      "id": "flap",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "扑腾",
+          "激动"
+        ]
+      },
+      "about": {
+        "zh": "开心地蹦起来,鲸鳍、尾巴、呆毛一起扑腾",
+        "en": "bounces happily, fins, tail and ahoge all flapping"
+      },
+      "seconds": 1.5
+    },
+    {
+      "id": "dance",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "跳舞",
+          "摇摆"
+        ]
+      },
+      "about": {
+        "zh": "原地踩着节拍摇摆三秒,冒音符",
+        "en": "sways to a beat on the spot for three seconds, music notes floating up"
+      },
+      "seconds": 3.4
+    },
+    {
+      "id": "swim",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "游泳",
+          "游一下",
+          "游一会儿",
+          "游两下",
+          "去游泳",
+          "游一圈",
+          "随便游游",
+          "仰泳",
+          "蛙泳",
+          "蝶泳",
+          "游一会儿嘛",
+          "游一下下"
+        ],
+        "en": [
+          "paddle",
+          "swimaround",
+          "swimforawhile",
+          "takeswim"
+        ]
+      },
+      "about": {
+        "zh": "在屏幕里悠闲地游几秒：身体放平、手脚划水、尾巴摆、嘴边冒泡，最后自己游回屏幕底部站起来",
+        "en": "swims around the screen for a few seconds — level body, paddling, tail swaying, bubbles at her mouth — then comes back down to the bottom and stands up"
+      },
+      "seconds": 10
+    },
+    {
+      "id": "swimhold",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "自由泳",
+          "一直游泳",
+          "游个不停",
+          "一直游",
+          "别停",
+          "一直游下去",
+          "持续游泳",
+          "保持游泳",
+          "不停地游",
+          "别停下来",
+          "继续游",
+          "游到我说停",
+          "一直游着",
+          "不要停",
+          "别歇着",
+          "游久一点"
+        ],
+        "en": [
+          "freestyle",
+          "crawl",
+          "frontcrawl",
+          "keepswimming",
+          "swimforever",
+          "swimnonstop",
+          "nonstop",
+          "swim2",
+          "continuousswim",
+          "swimfreestyle"
+        ]
+      },
+      "about": {
+        "zh": "一直游：在整个屏幕里游来游去，自己不会停，直到叫她别游了",
+        "en": "keeps swimming around the whole screen and never comes up on her own, until told to stop"
+      },
+      "seconds": 30
+    },
+    {
+      "id": "swimstop",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "别游了",
+          "上岸",
+          "游够了",
+          "不游了",
+          "停下来",
+          "别游啦",
+          "上岸吧",
+          "游回来",
+          "停止游泳",
+          "不游啦",
+          "够啦"
+        ],
+        "en": [
+          "stopswimming",
+          "getout",
+          "ashore",
+          "enoughswimming",
+          "surfaced"
+        ]
+      },
+      "about": {
+        "zh": "停下来，游回屏幕底部站好（她一直在游的时候用这个叫她）",
+        "en": "stops swimming and comes back down to the bottom of the screen to stand — the way to call her out of a sustained swim"
+      },
+      "seconds": 5
+    },
+    {
+      "id": "swimleft",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "往左游",
+          "向左游",
+          "游到左边",
+          "左边游",
+          "往左"
+        ],
+        "en": [
+          "goleft",
+          "left"
+        ]
+      },
+      "about": {
+        "zh": "朝左边游一段",
+        "en": "swims a stretch to the left"
+      },
+      "seconds": 8
+    },
+    {
+      "id": "swimright",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "往右游",
+          "向右游",
+          "游到右边",
+          "右边游",
+          "往右"
+        ],
+        "en": [
+          "goright",
+          "right"
+        ]
+      },
+      "about": {
+        "zh": "朝右边游一段",
+        "en": "swims a stretch to the right"
+      },
+      "seconds": 8
+    },
+    {
+      "id": "swimup",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "往上游",
+          "向上游",
+          "游高一点",
+          "上面游",
+          "往上"
+        ],
+        "en": [
+          "goup",
+          "upward"
+        ]
+      },
+      "about": {
+        "zh": "往屏幕上方游一段",
+        "en": "swims a stretch upward"
+      },
+      "seconds": 8
+    },
+    {
+      "id": "swimdown",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "往下游",
+          "向下游",
+          "游低一点",
+          "下面游",
+          "往下"
+        ],
+        "en": [
+          "godown",
+          "downward"
+        ]
+      },
+      "about": {
+        "zh": "往屏幕下方游一段",
+        "en": "swims a stretch downward"
+      },
+      "seconds": 8
+    },
+    {
+      "id": "swimfast",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "游快点",
+          "加速游",
+          "游快一点",
+          "快一点游",
+          "游快些"
+        ],
+        "en": [
+          "swimfaster",
+          "speedup",
+          "faster"
+        ]
+      },
+      "about": {
+        "zh": "游得快一点（划水也跟着变快）",
+        "en": "swims faster; the paddling beats faster with it"
+      },
+      "seconds": 10
+    },
+    {
+      "id": "swimslow",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "游慢点",
+          "慢点游",
+          "慢慢游",
+          "慢一点游",
+          "游慢些"
+        ],
+        "en": [
+          "swimslower",
+          "slowdown",
+          "slower"
+        ]
+      },
+      "about": {
+        "zh": "游得慢一点，更悠闲",
+        "en": "swims slower, more leisurely"
+      },
+      "seconds": 10
+    },
+    {
+      "id": "fly",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "悬停",
+          "原地飞",
+          "停在半空"
+        ]
+      },
+      "about": {
+        "zh": "原地起飞，停在半空轻轻浮动四秒左右，再柔和落回原地",
+        "en": "lifts off, hovers in the air for about four seconds, then settles softly back down"
+      },
+      "seconds": 8
+    },
+    {
+      "id": "soar",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "飞",
+          "自由飞",
+          "飞过去",
+          "滑翔",
+          "飞到那边",
+          "飞一圈"
+        ]
+      },
+      "about": {
+        "zh": "自由飞：在空中连选两三个落点，上下左右随意走，速度每段自己定，最后落下",
+        "en": "free flight: picks two or three points in the air, roams up and across as she likes at a speed she sets for each leg, then settles"
+      },
+      "seconds": 20
+    },
+    {
+      "id": "soarleft",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "往左飞",
+          "向左飞",
+          "飞左边"
+        ]
+      },
+      "about": {
+        "zh": "朝左边飞一段，横跨屏幕，够远就穿屏到右边去",
+        "en": "flies off to the left, across the stage, wrapping round to the right if it is far enough"
+      },
+      "seconds": 12
+    },
+    {
+      "id": "soarright",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "往右飞",
+          "向右飞",
+          "飞右边"
+        ]
+      },
+      "about": {
+        "zh": "朝右边飞一段，横跨屏幕，够远就穿屏到左边去",
+        "en": "flies off to the right, across the stage, wrapping round to the left if it is far enough"
+      },
+      "seconds": 12
+    },
+    {
+      "id": "soarup",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "往上飞",
+          "向上飞",
+          "升高",
+          "飞高"
+        ]
+      },
+      "about": {
+        "zh": "往高处飞一段，离地更高",
+        "en": "climbs higher into the air"
+      },
+      "seconds": 10
+    },
+    {
+      "id": "soardown",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "往下飞",
+          "向下飞",
+          "降低",
+          "飞低"
+        ]
+      },
+      "about": {
+        "zh": "往低处飞一段，靠近地面",
+        "en": "drops lower, closer to the ground"
+      },
+      "seconds": 8
+    },
+    {
+      "id": "soarfast",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "飞快",
+          "飞快点",
+          "加速飞",
+          "全速飞"
+        ]
+      },
+      "about": {
+        "zh": "全速飞：之后都按最高速飞，立刻飞一段给你看",
+        "en": "sets her to fly at full speed from now on, and flies a leg straight away to show it"
+      },
+      "seconds": 14
+    },
+    {
+      "id": "soarslow",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "飞慢",
+          "飞慢点",
+          "慢慢飞"
+        ]
+      },
+      "about": {
+        "zh": "慢速飞：之后都按最低速飞，立刻飞一段给你看",
+        "en": "sets her to fly at her slowest from now on, and flies a leg straight away to show it"
+      },
+      "seconds": 16
+    },
+    {
+      "id": "soarauto",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "速度随你",
+          "随便飞",
+          "自己定速度"
+        ]
+      },
+      "about": {
+        "zh": "把速度交还给她自己定（取消飞快／飞慢的设定）",
+        "en": "hands the pace back to her, undoing any fast or slow setting"
+      },
+      "seconds": 3
+    },
+    {
+      "id": "soarfastleft",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "飞快往左",
+          "快速往左飞",
+          "全速往左"
+        ]
+      },
+      "about": {
+        "zh": "全速朝左边飞一段，并把速度档位设成全速",
+        "en": "flies left at full speed, and leaves her set to full speed afterwards"
+      },
+      "seconds": 14
+    },
+    {
+      "id": "soarfastright",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "飞快往右",
+          "快速往右飞",
+          "全速往右"
+        ]
+      },
+      "about": {
+        "zh": "全速朝右边飞一段，并把速度档位设成全速",
+        "en": "flies right at full speed, and leaves her set to full speed afterwards"
+      },
+      "seconds": 14
+    },
+    {
+      "id": "soarhold",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "一直飞",
+          "持续飞",
+          "别下来",
+          "一直在天上",
+          "不要降落"
+        ]
+      },
+      "about": {
+        "zh": "一直飞下去：在空中不断换落点，自己不会降落，直到你叫她停下",
+        "en": "keeps flying: takes one point after another in the air and never comes down on her own, until told to stop"
+      },
+      "seconds": 30
+    },
+    {
+      "id": "soarstop",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "降落",
+          "下来",
+          "别飞了",
+          "落地",
+          "停下"
+        ]
+      },
+      "about": {
+        "zh": "停下来降落回地面（她一直飞的时候用这个叫她下来）",
+        "en": "stops and settles back to the ground — the way to call her down out of a sustained flight"
+      },
+      "seconds": 4
+    },
+    {
+      "id": "perch",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "站窗口顶",
+          "站到窗口上",
+          "站窗口上沿",
+          "去窗口上站着",
+          "站窗台上"
+        ],
+        "en": [
+          "windowperch",
+          "standonthewindow"
+        ]
+      },
+      "about": {
+        "zh": "飞到最近一扇窗口的上沿站上去；窗口挪动时会跟着走",
+        "en": "flies to the nearest window top and stands on it, following the window as it moves"
+      },
+      "seconds": 20
+    },
+    {
+      "id": "climb",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "爬上去",
+          "爬窗户",
+          "爬上窗边",
+          "沿着窗边爬",
+          "爬墙",
+          "抱住窗边"
+        ],
+        "en": [
+          "climbwindow",
+          "climbthewall",
+          "grabwindow",
+          "grabtheedge"
+        ]
+      },
+      "about": {
+        "zh": "走到最近的窗口侧边抱住它，挂在窗口边缘上；窗口挪动时她会跟着走",
+        "en": "walks to the nearest window side and holds on to it, hanging on the edge of the window; she rides it when it moves"
+      },
+      "seconds": 16
+    },
+    {
+      "id": "climbup",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "往上爬",
+          "继续爬",
+          "再爬高点",
+          "往上挪"
+        ],
+        "en": [
+          "goupwall",
+          "keepclimbing",
+          "climbhigher"
+        ]
+      },
+      "about": {
+        "zh": "沿着正抓着的窗边继续往上爬；没抓着的话，跟「爬上去」一样",
+        "en": "keeps working her way up the window side she is holding, or climbs one if she is not holding anything"
+      },
+      "seconds": 12
+    },
+    {
+      "id": "climbdown",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "爬下来",
+          "往下爬",
+          "往下挪",
+          "滑下来"
+        ],
+        "en": [
+          "godownwall",
+          "climblower",
+          "slidedown"
+        ]
+      },
+      "about": {
+        "zh": "沿着窗边往下爬；爬到下沿就松手落地",
+        "en": "climbs back down the window side; at the bottom of it she lets go and drops the rest of the way"
+      },
+      "seconds": 12
+    },
+    {
+      "id": "cling",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "抓住",
+          "扒住",
+          "挂在窗边",
+          "抓住别动",
+          "别动"
+        ],
+        "en": [
+          "holdon",
+          "hangon",
+          "staythere"
+        ]
+      },
+      "about": {
+        "zh": "抓住窗边挂着不动（她正在爬的时候，用这个让她停下）",
+        "en": "holds on to the window side without moving — the way to stop her part way up"
+      },
+      "seconds": 10
+    },
+    {
+      "id": "letgo",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "松手",
+          "放手",
+          "别扒着了",
+          "跳下来"
+        ],
+        "en": [
+          "release",
+          "dropoff",
+          "letgoofthewindow"
+        ]
+      },
+      "about": {
+        "zh": "松手推开窗边，落回地面",
+        "en": "lets go of the window side and pushes off it, dropping back to the ground"
+      },
+      "seconds": 2
+    },
+    {
+      "id": "peek",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "看窗口",
+          "看看窗口里有什么",
+          "去窗口看看",
+          "看看那个窗口",
+          "趴窗口看"
+        ],
+        "en": [
+          "lookinwindow",
+          "peekwindow",
+          "lookinside",
+          "watchwindow"
+        ]
+      },
+      "about": {
+        "zh": "飞到还没看过的那扇窗口边上抱住，探身看窗口里有什么；同一个窗口只看一次，看过的就不再去了",
+        "en": "flies to a window she has not looked into yet, holds on to its edge and leans in to see what is on it; one visit per window — a window she has read does not draw her back"
+      },
+      "seconds": 20
+    },
+    {
+      "id": "mantle",
+      "kind": "motion",
+      "names": {
+        "zh": [
+          "跳上窗口顶",
+          "翻上去",
+          "翻上窗口",
+          "跳到窗口顶上",
+          "上窗口顶",
+          "爬上窗口顶"
+        ],
+        "en": [
+          "vaultup",
+          "climbover",
+          "getontop",
+          "jumpontop"
+        ]
+      },
+      "about": {
+        "zh": "沿窗边爬到窗口上沿，然后一跃翻上去，站到窗口顶的窗台上；不说就不跳，她只会停在窗口上沿",
+        "en": "climbs up the window side to its top edge and vaults up onto the window top; she only does it when asked, otherwise she just stops at the top edge"
+      },
+      "seconds": 14
+    }
+  ],
+  "sounds": {},
+  "can": {
+    "walk": true
+  },
+  "needs": [
+    "windows"
+  ],
+  "moves": [
+    {
+      "id": "windowtop",
+      "name": {
+        "zh": "站到窗口上",
+        "en": "stand on a window"
+      },
+      "about": {
+        "zh": "飞到最近一扇窗口的上沿站上去；窗口挪动时会跟着走",
+        "en": "flies to the nearest window top and stands on it, following the window as it moves"
+      }
+    }
+  ]
+}
