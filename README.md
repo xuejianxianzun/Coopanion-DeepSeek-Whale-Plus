@@ -30,15 +30,15 @@
 
 攀爬：
 
-<video src="./docs/climb.mp4" autoplay muted loop></video>
+https://github.com/user-attachments/assets/669cac02-a9ce-4881-835e-4e7c2ded2801
 
 飞行：
 
-<video src="./docs/fly.mp4" autoplay muted loop></video>
+https://github.com/user-attachments/assets/cb310c8f-1485-4426-a5a6-ba4737926336
 
 游泳：
 
-<video src="./docs/swim.mp4" autoplay muted loop></video>
+https://github.com/user-attachments/assets/02bd0c4f-3c94-430f-8670-762fda87d127
 
 大肥鱼在飞行、游泳过程中会自己改变方向、角度、速度。
 
