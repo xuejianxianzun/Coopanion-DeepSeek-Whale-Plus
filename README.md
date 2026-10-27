@@ -78,7 +78,7 @@ https://github.com/user-attachments/assets/02bd0c4f-3c94-430f-8670-762fda87d127
 
 - 包 id：`deepseek-whale-plus`
 - 名字：大肥鱼 Plus
-- 形象包的版本：1.1.5（= 上游 0.2.9 的形象包 + 本包自己的飞行/游泳/窗口/作息功能）
+- 形象包的版本：1.1.6（= 上游 0.2.12 的形象包 + 本包自己的飞行/游泳/窗口/作息功能）
 - 依赖：Coopanion 0.2.9 及以上的形象包接口（`manifest: 2`、`api: 2`，窗口矩形随 `needs: ["windows"]` 下发）
 
 ## 同步上游
@@ -86,8 +86,23 @@ https://github.com/user-attachments/assets/02bd0c4f-3c94-430f-8670-762fda87d127
 从内置 `web/whale/` 复制之后，官方每次改形象都会同步进这个包（只搬素材和与动作无关的改动，
 自己的飞行/游泳/窗口代码不动）。
 
-复查方法：把 `web/whale/` 与本包逐目录比一次（`tex` `schemes` `outfits` `feat` `thumbs` `model.json`），
-`figure.js` 因为带了功能补丁不能直接比，改成先看上游两个 tag 的 `diff`，再把新出现的 hunk 手工贴进来。
+复查方法：把 `web/whale/` 与本包逐目录比一次（`tex` `schemes` `outfits` `feat` `thumbs` `model.json`
+，以及 `web/kit/` 的 `rig.js`），`figure.js` 因为带了功能补丁不能直接比，改成先看上游两个 tag 的
+`diff`，再把新出现的 hunk 手工贴进来。
+
+最近一次同步：**0.2.9 → 0.2.12**（2026-10-27），内容是 0.2.12 的「大肥鱼的裙影」（#388）——
+被拎起或走动时，腿上不再有一条跟着腿走的暗带。搬过来的东西：
+
+- 新增部件 `skirt_shadow`（`tex/skirt_shadow.png`、`outfits/crew/skirt_shadow.png`），
+  `parent: "skirt"`、`blend: "multiply"`，坐下时随 `skirt` 一起淡出；
+- 重画 `leg_back` / `leg_front`：本体、`schemes/` 里 7 套配色、`outfits/crew/` 各一对；
+- `model.json` 的两段部件定义（女仆装本体 + 店員装）；
+- `kit/rig.js` 新增 `blend: 'multiply'` 支持（`blendFuncSeparate(DST_COLOR, ONE_MINUS_SRC_ALPHA)`）；
+- `figure.js` 里 `st.alpha.skirt_shadow = 1 - sitIn` 这一处。
+
+**`rig.js` 要跟着同步的理由**：0.2.9–0.2.11 的应用里没有 multiply 混合，裙影会被当成普通贴图叠上去，
+在她轮廓外留下一块灰。所以这个包不再借应用 kit 的 `createRig`，改用自己的 `rig.js`
+（`figure.js` 里那一行），老版本应用上也画得一样。
 
 ## 文件
 
@@ -99,7 +114,7 @@ https://github.com/user-attachments/assets/02bd0c4f-3c94-430f-8670-762fda87d127
 | `perch-physics.js` | 窗台物理（窗口顶边） |
 | `climb-physics.js` | 窗边物理（抱、爬、跟窗移动、边没了就松手） |
 | `window-edges.js` | 把整扇窗裁成能抱的竖边（遮挡、贴边、太短都处理掉） |
-| `rig.js` | 骨骼绘制（`figure.js` 的依赖） |
+| `rig.js` | 骨骼绘制（`figure.js` 的依赖）：应用 0.2.12 的 `web/kit/rig.js`，带 `multiply` 混合 |
 | `model.json` `tex/` `schemes/` `outfits/` `feat/` `thumbs/` | 原形象的素材 |
 
 ## 攀爬参数
@@ -132,10 +147,12 @@ https://github.com/user-attachments/assets/02bd0c4f-3c94-430f-8670-762fda87d127
 - `name` 改成「大肥鱼 Plus」（`Whale Plus`），`about` 补了会飞会游泳会爬窗的说明；
 - `vocab` 从 37 个词扩到 67 个（原 37 + 飞行 13 + 游泳 9 + 窗口顶 1 + 窗口侧边 7）；
 - 新增 `needs: ["windows"]` 与 `moves: [windowtop]`；
-- `figure.js` 改用包内自带的 `body.js` / `rig.js`，不再依赖应用里的 `kit`；
+- `figure.js` 改用包内自带的 `body.js` / `rig.js`，不再依赖应用里的 `kit`（`rig.js` 是 0.2.12 的
+  `web/kit/rig.js`，比老版本应用多一个 `multiply` 混合，裙影靠它）；
 - `figure.js` 补上了游泳 / 飞行 / 攀爬的姿态（`swimK`、`swimPhase`、`climbK`、`GROUP` 里的
   `swimming` / `flying`，手脚和尾巴的动作），不会竖直站着游 / 飞，抱着窗边也不是站姿；
-- 配色（8 套）、服装（3 套）、表情、动作、贴图都和原版一致。
+- 配色（8 套）、服装（3 套）、表情、动作、贴图都和原版一致；0.2.12 的裙影（`skirt_shadow` 部件）
+  也是原样搬过来的。
 
 ## 打盹与作息的修改
 

@@ -77,11 +77,12 @@ function loadImage(url) {
  * pack's two axes; a bare `<scheme>` is the first outfit, the maid dress. `opts.model` (model.json
  * already parsed) and `opts.asset(path)` (a texture's URL) are for pages that bundle the files;
  * `opts.loadImage` is the figure frame's (figure-frame.js), which loads images WebGL may read there.
- * `opts.kit` is the frame's kit, whose `createRig` draws her; without it (a page that imports this file
- * from the package) the package's own kit/rig.js does. A pack installed elsewhere has no ../kit/.
+ * She is drawn by the pack's own `rig.js` (a copy of the app's kit/rig.js as of 0.2.12, the first with
+ * `blend: 'multiply'`), not by the frame's `opts.kit`: the skirt shadow needs that blend mode, and a pack
+ * should draw the same on 0.2.9 as on the newest app. `opts.kit` is accepted and ignored.
  */
 export async function createWhaleFigure(base = new URL('./', import.meta.url), opts = {}) {
-  const createRig = opts.kit?.createRig ?? (await import('./rig.js')).createRig;
+  const createRig = (await import('./rig.js')).createRig;
   const model = opts.model || await (await fetch(new URL('model.json', base))).json();
   const asset = opts.asset || (p => new URL(p, base));
   const load = opts.loadImage || loadImage;
@@ -722,7 +723,7 @@ export async function createWhaleFigure(base = new URL('./', import.meta.url), o
     };
     // the sitting skirt breathes a little at its hem, and its front edge swings with the body
     st.skirtSit = { fn: (u, v) => [skirt * 1.5 * v * v, -Math.max(0, breath) * .4 * v] };
-    st.alpha.skirt = st.alpha.waist_bow_front = 1 - sitIn;
+    st.alpha.skirt = st.alpha.waist_bow_front = st.alpha.skirt_shadow = 1 - sitIn;
     st.alpha.leg_back = st.alpha.leg_front = 1 - smooth(.42, .52, sitK);
     st.alpha.leg_front *= (1 - climbK);
     st.alpha.skirt_sit = st.alpha.waist_bow_sit_front = sitIn;
