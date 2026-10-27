@@ -2,7 +2,7 @@
   "manifest": 2,
   "api": 2,
   "id": "deepseek-whale-plus",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "name": {
     "zh": "大肥鱼 Plus",
     "zh-Hant": "大肥魚 Plus",
@@ -1248,16 +1248,17 @@
       "names": {
         "zh": [
           "飞",
-          "自由飞",
           "飞过去",
           "滑翔",
           "飞到那边",
-          "飞一圈"
+          "飞一圈",
+          "飞一段",
+          "飞一下"
         ]
       },
       "about": {
-        "zh": "自由飞：在空中连选两三个落点，上下左右随意走，速度每段自己定，最后落下",
-        "en": "free flight: picks two or three points in the air, roams up and across as she likes at a speed she sets for each leg, then settles"
+        "zh": "飞一小段：在空中连选两三个落点，上下左右随意走，速度每段自己定，然后自己落下。想让她一直在天上飞，用「自由飞翔」或「一直飞」",
+        "en": "a short flight: picks two or three points in the air, roams up and across as she likes at a speed she sets for each leg, then settles by herself. For a flight that goes on, use '自由飞翔' or '一直飞'"
       },
       "seconds": 20
     },
@@ -1413,7 +1414,13 @@
       "kind": "motion",
       "names": {
         "zh": [
+          "自由飞翔",
+          "自由飞",
+          "自由地飞",
+          "自由自在飞",
           "一直飞",
+          "一直飞着",
+          "飞个不停",
           "持续飞",
           "别下来",
           "一直在天上",
@@ -1421,8 +1428,8 @@
         ]
       },
       "about": {
-        "zh": "一直飞下去：在空中不断换落点，自己不会降落，直到你叫她停下",
-        "en": "keeps flying: takes one point after another in the air and never comes down on her own, until told to stop"
+        "zh": "一直飞下去，「自由飞翔」也是这个：在空中不断换落点，自己不会降落，直到你叫她停下（「降落」）",
+        "en": "keeps flying — '自由飞翔' means this too: takes one point after another in the air and never comes down on her own, until told to stop ('降落')"
       },
       "seconds": 30
     },

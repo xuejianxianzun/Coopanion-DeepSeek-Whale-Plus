@@ -16,9 +16,11 @@
 4. Coopanion 会显示一个确认窗口，点击「导入」按钮，就添加了这个形象包；
 5. 手动切换到这个形象包即可使用。
 
+当本形象包发布了新版本之后，你需要重新下载、导入，以升级本地的这个形象包。
+
 **飞行或游泳：**
 
-可以通过对话发送命令让她飞行或游泳。想让她一直飞的话，可以说`自由飞翔`；想让她一直游的话可以说`自由泳`。如果不加`自由`或`一直`之类的描述，则只会执行一次对应动作，不会一直持续下去。
+可以通过对话发送命令让她飞行或游泳。想让她一直飞的话，说 `自由飞翔`（或 `一直飞`），她会一直在天上换落点飞；想让她一直游的话说 `自由泳`（或 `一直游`）。只说 `飞` / `游泳` 而不加 `自由` / `一直`，则只飞一小段、游一会儿就自己落下 / 上岸。要叫她下来，说 `降落`（游泳时说 `上岸`）。
 
 **爬窗口：**
 
@@ -48,7 +50,7 @@ https://github.com/user-attachments/assets/02bd0c4f-3c94-430f-8670-762fda87d127
 
 | 类别 | 词 |
 | --- | --- |
-| 飞行（13） | `fly` 悬停、`soarhold` 一直飞、`soar` 自由飞、`soarleft` `soarright` `soarup` `soardown`、`soarfast` `soarslow` `soarauto`、`soarfastleft` `soarfastright`、`soarstop` 降落 |
+| 飞行（13） | `fly` 悬停、`soarhold` 一直飞（`自由飞翔`）、`soar` 飞一小段、`soarleft` `soarright` `soarup` `soardown`、`soarfast` `soarslow` `soarauto`、`soarfastleft` `soarfastright`、`soarstop` 降落 |
 | 游泳（9） | `swim` 短游、`swimhold` 一直游、`swimstop` 叫停、`swimleft` `swimright` `swimup` `swimdown`、`swimfast` `swimslow` |
 | 窗口顶（1） | `perch` 站到最近一扇窗口的上沿；`pet_move_to` 的目标 `windowtop` 是同一件事 |
 | 窗口侧边（7） | `climb` 抱住窗边往上爬、`climbup` 继续往上、`climbdown` 往下、`cling` 抓住不动、`letgo` 松手落地、`mantle` 翻上窗口顶、`peek` 趴窗看 |
@@ -78,7 +80,7 @@ https://github.com/user-attachments/assets/02bd0c4f-3c94-430f-8670-762fda87d127
 
 - 包 id：`deepseek-whale-plus`
 - 名字：大肥鱼 Plus
-- 形象包的版本：1.1.6（= 上游 0.2.12 的形象包 + 本包自己的飞行/游泳/窗口/作息功能）
+- 形象包的版本：1.1.7（= 上游 0.2.12 的形象包 + 本包自己的飞行/游泳/窗口/作息功能）
 - 依赖：Coopanion 0.2.9 及以上的形象包接口（`manifest: 2`、`api: 2`，窗口矩形随 `needs: ["windows"]` 下发）
 
 ## 同步上游
