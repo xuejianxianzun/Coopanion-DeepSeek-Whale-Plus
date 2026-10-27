@@ -958,7 +958,12 @@ export async function createWhaleBody(base, opts) {
     const windows = Array.isArray(b.windows) ? b.windows : null;
     if (windows !== lastWindows) {
       lastWindows = windows;
-      body.set({ climbEdges: windows ? windowEdges(windows, { width: b.W, floor: b.floorY }) : [] });
+      body.set({
+        climbEdges: windows ? windowEdges(windows, { width: b.W, floor: b.floorY }) : [],
+        // 整扇窗的 id（不是裁完的边）：climb 用它把已经关掉的窗口从「她看过了」里清掉，同一个
+        // hwnd 重开一次她还会去看。读不到窗口的那一次不给（null），别把这份记忆一次清空。
+        climbWindows: windows ? windows.map(w => w.id).filter(id => id != null) : null,
+      });
     }
   };
   const step = body.step;

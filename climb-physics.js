@@ -164,7 +164,8 @@ export function createClimbPhysics() {
   /**
    * The windows she has already been to look into, by window (`id` on every piece of every side of it
    * is `<window>:<side>`). One visit each: the point of going to look is that a *new* window is worth
-   * a look, so a window she has already read must not draw her back to it.
+   * a look, so a window she has already read must not draw her back to it. A closed window is forgotten
+   * (see `setEdges`): the same `hwnd:pid` opened again is a window she has not read.
    */
   const seenWindows = new Set();
 
@@ -241,7 +242,21 @@ export function createClimbPhysics() {
   }
 
   return {
-    setEdges(value) { edges = Array.isArray(value) ? value : []; },
+    /**
+     * 换一份新的可抱竖边。`openIds` 是可选的：这一帧还开着的窗口 id（**整扇窗**，不是裁完的边——
+     * 被前面的窗口挡住、太窄没边的窗也算开着，否则它会因为“暂时没边”被误当成关掉了）。
+     * 给了就顺手清掉「看过了」里已经不在的窗口：窗口关掉即忘记，同一个 `hwnd:pid` 再开一次，
+     * 她还愿意去看一眼；不给（页面只喂边、不喂窗口列表）就完全照旧，一次都不清。
+     *
+     * 窗口列表本身 0.7 秒一份，所以“关掉”最快也要下一个样本才知道；关得太快又立刻重开
+     * （同一个 id）她可能记成看过——代价只是少看一眼，不影响别的东西。
+     */
+    setEdges(value, openIds) {
+      edges = Array.isArray(value) ? value : [];
+      if (!Array.isArray(openIds)) return;
+      const open = new Set(openIds);
+      for (const id of seenWindows) if (!open.has(id)) seenWindows.delete(id);
+    },
     /** True while she is holding on to a window side. */
     get attached() { return !!held; },
     /**

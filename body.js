@@ -168,8 +168,6 @@ export function createPet(els, opts) {
   let tune = {};
   const tuneNum = (v, fallback) => (Number.isFinite(v) ? v : fallback);
   const tunePair = (v, fallback) => (Array.isArray(v) && Number.isFinite(v[0]) && Number.isFinite(v[1]) ? v : fallback);
-  /** Seconds between two of her own visits to a window she has not read yet. */
-  const peekCool = () => { const [a, b] = tunePair(tune.peekCool, [20, 45]); return T + rnd(Math.min(a, b), Math.max(a, b)); };
   /** How long a visit lasts before she drops off the frame by herself. */
   const peekStay = () => { const [a, b] = tunePair(tune.peekStay, [20, 20]); return T + rnd(Math.min(a, b), Math.max(a, b)); };
   /** Climbing speed, both the step up and the slide down. */
@@ -729,7 +727,7 @@ export function createPet(els, opts) {
     pet.dropWhy = 'mantle-' + Math.round(pet.fy);
     // 翻上去这一趟就算「看完了 / 守完了」：不清掉的话，站到窗沿上又会触发一次「上去看他那扇窗」，
     // 变成爬上去 → 翻上屋顶 → 再爬上去的循环。
-    pet.watchId = null; pet.peekWin = null; pet.watchRestUntil = T + 12;
+    pet.watchId = null; pet.peekWin = null; pet.mantleRestUntil = T + 12;
     // 横向落点对准窗沿中点。air 里横向按 exp(-0.4t) 衰减，0.6 秒大约走 0.21 倍的 vx，
     // 所以给定目标位移 dx，vx ≈ dx / 0.21（夹住，别横着飞出去）。
     const dx = (roof.left + roof.right) / 2 - pet.x;
@@ -1169,8 +1167,9 @@ export function createPet(els, opts) {
     // 原来那条「自己去找一扇没看过的窗、看 20 秒就走」按他的要求去掉了（2026-10-17 晚）。
     if (T - (pet.activeSince ?? T) >= tuneNum(tune.watchAfter, 5) && climb.activeEdge(pet, S, desktopFloor)
         && climb.activeWindow() !== pet.watchGiveUp
-        // 刚爬完一趟自己下来的（watchRestUntil）：30 秒内不再把她送上去，免得变成上下反复
-        && T >= (pet.watchRestUntil ?? 0)) {
+        // 刚翻上窗顶、或者爬到顶没翻又滑下来的那一趟（mantleRestUntil）：12 秒内不再把她送上去，
+        // 免得变成「爬上去 → 滑下来 → 一落地又爬上去」的上下反复（见 mantleJump 与 atCeiling 支）
+        && T >= (pet.mantleRestUntil ?? 0)) {
       if (watchAct()) { pet.lastAct = 'watch'; pet.nextAt = T + rnd(2, 4); return; }
     }
     // `climb` stays on the list: she is the one who can tell whether there is a side worth going to,
@@ -1815,10 +1814,10 @@ export function createPet(els, opts) {
             // 第三次永远轮不到。
             else if (T - pet.climbPeek > 4) {
               pet.climbDir = 1; pet.climbPeek = 0; pet.mantleRollAt = 0; pet.mantleRolls = 0;
-              // 到顶自己下来这一趟到此为止：30 秒内别再被「守着他正在用的窗口」自动送上去。
+              // 到顶自己下来这一趟到此为止：12 秒内别再被「守着他正在用的窗口」自动送上去。
               // 不然就是他 2026-10-17 报的那个循环：爬上去 → 停 → 滑下来 → 一落地又爬上去。
               // 他再开口叫她爬（指令）不受这条影响。
-              pet.watchRestUntil = T + 12;   // 到顶没翻、滑下来以后，等 12 秒就能再试一次（原来 30 秒）
+              pet.mantleRestUntil = T + 12;   // 到顶没翻、滑下来以后，等 12 秒就能再试一次（原来 30 秒）
             }
           } else { pet.mantleRollAt = 0; pet.mantleRolls = 0; }
         } else {
@@ -2286,8 +2285,8 @@ export function createPet(els, opts) {
   custom?.setSkin?.(skin);
   return {
     setPerchSurfaces: (surfaces) => perch.setSurfaces(surfaces),
-    setClimbEdges: (list) => climb.setEdges(list),
-    /** Her own settings (weights, peek cool-off and stay, climbing speed, autonomy): see the peekCool and
+    setClimbEdges: (list, openIds) => climb.setEdges(list, openIds),
+    /** Her own settings (weights, how long a look lasts, climbing speed, autonomy): see the peekStay and
      *  climbPace helpers above, and decide(). Replaced whole each time, so clearing one means omitting it. */
     setTune(t) { tune = t && typeof t === 'object' ? t : {}; },
     /** The pack's own pet_move_to targets; only `perch` for now. */
@@ -2410,7 +2409,7 @@ export function createBody(host, opts) {
     },
     set(s) {
       if (s.perchSurfaces) ctl.setPerchSurfaces(s.perchSurfaces);
-      if (s.climbEdges) ctl.setClimbEdges(s.climbEdges);
+      if (s.climbEdges) ctl.setClimbEdges(s.climbEdges, s.climbWindows);
       if (s.tune) ctl.setTune(s.tune);
       if (s.roam) ctl.setRoam(s.roam);
       if (typeof s.hold === 'number') ctl.holdRoam(s.hold);
