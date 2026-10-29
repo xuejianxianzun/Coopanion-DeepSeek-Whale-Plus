@@ -80,7 +80,7 @@ https://github.com/user-attachments/assets/02bd0c4f-3c94-430f-8670-762fda87d127
 
 - 包 id：`deepseek-whale-plus`
 - 名字：大肥鱼 Plus
-- 形象包的版本：1.1.7（= 上游 0.2.12 的形象包 + 本包自己的飞行/游泳/窗口/作息功能）
+- 形象包的版本：1.1.8（= 上游 0.2.15 的形象包 + 本包自己的飞行/游泳/窗口/作息功能）
 - 依赖：Coopanion 0.2.9 及以上的形象包接口（`manifest: 2`、`api: 2`，窗口矩形随 `needs: ["windows"]` 下发）
 
 ## 同步上游
@@ -92,7 +92,18 @@ https://github.com/user-attachments/assets/02bd0c4f-3c94-430f-8670-762fda87d127
 ，以及 `web/kit/` 的 `rig.js`），`figure.js` 因为带了功能补丁不能直接比，改成先看上游两个 tag 的
 `diff`，再把新出现的 hunk 手工贴进来。
 
-最近一次同步：**0.2.9 → 0.2.12**（2026-10-27），内容是 0.2.12 的「大肥鱼的裙影」（#388）——
+最近一次同步：**0.2.12 → 0.2.15**（2026-10-29），内容是 0.2.14 的「大肥鱼的眼睛高光会动」（#258）
+和 0.2.15 对它的修正（#504：虹膜形状与位置改回原样，只把高光从贴图里拿掉）。搬过来的东西：
+
+- 新增 `feat/eyeL_hl.png`、`feat/eyeR_hl.png`：两只眼的高光各成一张贴图；
+- 换掉 `feat/eyeL_iris.png`、`feat/eyeR_iris.png`（原版配色的虹膜，去掉烘在里面的高光）；
+- `model.json`：`feat.eyes.eyeL/eyeR` 各多一个 `hl` 框，`schemes[0]`（原版配色）多一个
+  `eyeHighlights: true` —— **只有原版配色开**，其他 7 套配色的眼睛与旧版一样；
+- `figure.js`：高光单独画（`paintOpenEye` 里那段），跟着视线与转头弹一下（`hlX`/`hlY` 弹簧）、
+  眨眼开合时被眼皮压住、并按表情变大小与抖动（`HL_MOOD`：难过/担心/害羞放大颤动，生气/认真缩小，
+  睡意/满足时变淡）。
+
+再往前一次：**0.2.9 → 0.2.12**（2026-10-27），内容是 0.2.12 的「大肥鱼的裙影」（#388）——
 被拎起或走动时，腿上不再有一条跟着腿走的暗带。搬过来的东西：
 
 - 新增部件 `skirt_shadow`（`tex/skirt_shadow.png`、`outfits/crew/skirt_shadow.png`），
@@ -153,8 +164,8 @@ https://github.com/user-attachments/assets/02bd0c4f-3c94-430f-8670-762fda87d127
   `web/kit/rig.js`，比老版本应用多一个 `multiply` 混合，裙影靠它）；
 - `figure.js` 补上了游泳 / 飞行 / 攀爬的姿态（`swimK`、`swimPhase`、`climbK`、`GROUP` 里的
   `swimming` / `flying`，手脚和尾巴的动作），不会竖直站着游 / 飞，抱着窗边也不是站姿；
-- 配色（8 套）、服装（3 套）、表情、动作、贴图都和原版一致；0.2.12 的裙影（`skirt_shadow` 部件）
-  也是原样搬过来的。
+- 配色（8 套）、服装（3 套）、表情、动作、贴图都和原版一致；上游 0.2.12 的裙影（`skirt_shadow` 部件）
+  和 0.2.14/0.2.15 的眼高光（`eye*_hl` 贴图 + `eyeHighlights`）也是原样搬过来的。
 
 ## 打盹与作息的修改
 
